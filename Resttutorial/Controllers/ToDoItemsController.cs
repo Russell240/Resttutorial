@@ -104,6 +104,11 @@ namespace TodoApi.Controllers
         }
 
         // DELETE: api/ToDoItems/5
+
+        /// summary> 
+        ///  Deletes a specific TodoItem.
+        /// </summary>
+        /// <param name="id"></param>        
         [HttpDelete("{id}")]
         public async Task<ActionResult<TodoItem>> DeleteTodoItem(long id)
         {

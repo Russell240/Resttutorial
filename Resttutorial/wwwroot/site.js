@@ -1,4 +1,4 @@
-﻿const uri = 'api/ToDoItems';
+﻿const uri = 'api/todoitems';
 let todos = [];
 
 function getItems()   // returns a succesful status code 
@@ -10,31 +10,32 @@ function getItems()   // returns a succesful status code
 
 } 
 
+
 function addItem() {
-    const addNameTextBox = document.getElementById('add-name');
+    const addNameTextBox = document.getElementById('addItem');
 
     const item = {
         IsComplete: false,
         name: addNameTextBox.value.trim()
     };
 
-    fetch(uri,
-        {
-            method: ' POST ',
+    fetch(uri,  {
+            method: 'POST',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Accept':'application/json',
+                'Content-Type':'application/json',
 
             },
-            body: JSON.stringify(item)
+            body:JSON.stringify(item)
 
         })
         .then(response => response.json())
-        .then(() => {
+             .then(() => {
             getItems();
             addNameTextBox.value = '';
+            console.log("success");
         })
-        .catch(error => console.error('Unable to add item', error));
+        .catch(error => console.error('Unable to add item. ', error));
 
 }
 

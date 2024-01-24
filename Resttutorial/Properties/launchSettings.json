@@ -17,12 +17,12 @@
         "launchBrowser": true
     },
     "Resttutorial": {
-        "applicationUrl": "https://localhost:5001;http://localhost:5000",
-        "commandName": "Project",
-        "environmentVariables": {
-            "ASPNETCORE_ENVIRONMENT": "Development"
-        },
-        "launchBrowser": true
+      "applicationUrl": "https://localhost:5001;http://localhost:50001",
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "launchBrowser": true
     }
   }
 }

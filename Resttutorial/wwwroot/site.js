@@ -10,9 +10,9 @@ function getItems()   // returns a succesful status code
 
 } 
 
-
+// adds an item and checks for any error 
 function addItem() {
-    const addNameTextBox = document.getElementById('addItem');
+    const addNameTextBox = document.getElementById('add-name');
 
     const item = {
         IsComplete: false,
@@ -98,7 +98,7 @@ function updateItem() {
 
         data.forEach(item => {
             let isCompleteCheckbox = document.createElement("input");
-            isCompleteCheckbox.type = checkbox;
+            isCompleteCheckbox.type = 'checkbox';
             isCompleteCheckbox.disabled = true;
             isCompleteCheckbox.disabled = item.isComplete;
 
@@ -111,17 +111,17 @@ function updateItem() {
             deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
 
             let tr = tbody.insertRow();
-            let td1 = tr.InsertCell(0);
+            let td1 = tr.insertCell(0);
             td1.appendChild(isCompleteCheckbox);
 
-            let td2 = tr.InsertCell(1);
+            let td2 = tr.insertCell(1);
             let textNode = document.createTextNode(item.name);
             td2.appendChild(textNode);
 
-            let td3 = tr.InsertCell(2);
+            let td3 = tr.insertCell(2);
             td3.appendChild(editButton);
 
-            let td4 = tr.InsertCell(3);
+            let td4 = tr.insertCell(3);
             td4.appendChild(deleteButton);
 
         });

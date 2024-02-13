@@ -49,20 +49,24 @@ function addItem() {
 
     function displayEditForm() {
         const item = todos.find(item => item.id === id);
-        document.getElementById('edit-name').value = item.name;
-        document.getElementById('edit-id').value = id.value;
-        document.getElementById('edit-isComplete').checked = isComplete.value;
-        document.getElementById('edit-form').style.display = 'block';
+        if (this.item != null) {
+            document.getElementById('edit-name').value = item.name;
+            document.getElementById('edit-id').value = id.value;
+            document.getElementById('edit-isComplete').checked = isComplete.value;
+            document.getElementById('edit-form').style.display = 'block';
+        }
     }
 
 function updateItem() {
     const itemID = document.getElementById('edit-id').value;
     const item = {
         id: parseInt(itemID, 10),
-        IsComplete: document.getElementByID('edit-isComplete').checked,
-        name: document.getElementById('edit-name').valuetrim()
+        IsComplete: document.getElementById('edit-isComplete').checked,
+        name: document.getElementById('edit-name').trim(), 
+        
     };
-
+    console.log(item.name).trim();
+    
 
 
     fetch(`${uri}/${itemid}`, {
@@ -84,7 +88,7 @@ function updateItem() {
         document.getElementById('editForm').style.display = 'none';
     }
     function _displayCount(itemCount) {
-        const name = (itemCount == 1) ? 'todo' : 'todos';
+        const name = (itemCount == 1) ? 'to-do' : 'to-dos';
         document.getElementById('counter').innerText = `${itemCount}  ${name}`;
     }
 
@@ -103,8 +107,8 @@ function updateItem() {
             isCompleteCheckbox.disabled = item.isComplete;
 
             let editButton = button.cloneNode(false);
-            editButton.innerText = 'edit ';
-            editButton.setAttribute('onclick', `displayEditForms(${item.id}) `);
+            editButton.innerText = 'Edit ';
+            editButton.setAttribute('onclick', `displayEditForm(${item.id}) `);
 
             let deleteButton = button.cloneNode(false);
             deleteButton.innerText = 'Delete';

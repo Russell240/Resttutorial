@@ -62,9 +62,18 @@ function updateItem() {
     const item = {
         id: parseInt(itemID, 10),
         IsComplete: document.getElementById('edit-isComplete').checked,
-        name: document.getElementById('edit-name').trim(), 
+        name: document.getElementById('edit-name').innerHTML.trim(), 
+      
+
+        /*if(typeof name === 'string') {
+            var result = name.trim();
+        }
+        console.log(result); 
         
-    };
+        else {
+        console.log(Error); 
+        } */
+     };
     console.log(item.name).trim();
     
 

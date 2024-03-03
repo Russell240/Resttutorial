@@ -58,27 +58,15 @@ function addItem() {
     }
 
 function updateItem() {
-    const itemID = document.getElementById('edit-id').value;
+    const itemId = document.getElementById('edit-id').value;
     const item = {
-        id: parseInt(itemID, 10),
+        id: parseInt(itemId, 10),
         IsComplete: document.getElementById('edit-isComplete').checked,
-        name: document.getElementById('edit-name').innerHTML.trim(), 
-      
-
-        /*if(typeof name === 'string') {
-            var result = name.trim();
-        }
-        console.log(result); 
-        
-        else {
-        console.log(Error); 
-        } */
-     };
-    console.log(item.name).trim();
-    
+        name: document.getElementById('edit-name').innerHTML.trim(),
+    };
 
 
-    fetch(`${uri}/${itemid}`, {
+    fetch(`${uri}/${itemId}`, {
         method: 'PUT',
         headers: {
             'Accept': 'application.json',
